@@ -1,0 +1,26 @@
+import math
+
+def func(x):
+    return (2/(1+x)) - 3*math.sin(x)
+
+#использование метода дихотомии
+def bisection_method(a, b, e):
+    while (b - a) >= e:
+        c = (a + b) / 2
+
+        if func(c) == 0:
+            break
+        elif func(c) * func(a) < 0:
+            b = c
+        else:
+            a = c
+
+    return c
+
+a = 0.0
+b = 1.0
+e = 1e-6
+
+root = bisection_method(a, b, e)
+
+print("Корень уравнения:", root)
